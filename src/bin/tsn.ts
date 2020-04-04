@@ -4,11 +4,14 @@
 This CLI command is optimized for speed, so, it includes minimum dependencies
  */
 
-import { kpy } from '@naturalcycles/fs-lib'
-import { boldGrey, dimGrey } from '@naturalcycles/nodejs-lib/dist/colors'
-import { execWithArgs } from '@naturalcycles/nodejs-lib/dist/exec'
-import * as fs from 'fs-extra'
-import { cfgDir } from '../paths.cnst'
+import type * as fsLib from '@naturalcycles/fs-lib'
+import * as c from 'chalk'
+import * as fs from 'fs'
+import * as path from 'path'
+import * as tsnode from 'ts-node'
+
+export const projectDir = path.join(__dirname, '..')
+export const cfgDir = `${projectDir}/cfg`
 
 main().catch(err => {
   console.error(err)
@@ -18,7 +21,7 @@ main().catch(err => {
 async function main(): Promise<void> {
   const projectTsconfigPath = await ensureProjectTsconfigScripts()
 
-  let [, , scriptPath = '', ...processArgs] = process.argv
+  let [, , scriptPath = '', ..._processArgs] = process.argv
 
   // Prepend ./scripts/ if needed
   if (
@@ -32,29 +35,32 @@ async function main(): Promise<void> {
     }
   }
 
-  const args: string[] = [
-    '-T',
-    '-P',
-    projectTsconfigPath,
-    '-r',
-    'loud-rejection/register',
-    '-r',
-    'dotenv/config',
-  ]
+  require('loud-rejection/register')
+  require('dotenv/config')
+  tsnode.register({
+    transpileOnly: true,
+    project: projectTsconfigPath,
+  })
 
   if (nodeModuleExists('tsconfig-paths')) {
-    args.push('-r', 'tsconfig-paths/register')
+    require('tsconfig-paths/register')
   }
 
   const { NODE_OPTIONS } = process.env
 
   if (NODE_OPTIONS) {
-    console.log(`${dimGrey('NODE_OPTIONS: ' + NODE_OPTIONS)}`)
+    console.log(`${c.dim.grey('NODE_OPTIONS: ' + NODE_OPTIONS)}`)
   } else {
-    console.log(`${dimGrey('NODE_OPTIONS are not defined')}`)
+    console.log(`${c.dim.grey('NODE_OPTIONS are not defined')}`)
   }
 
-  await execWithArgs('ts-node', [...args, scriptPath, ...processArgs])
+  scriptPath = require.resolve(`${process.cwd()}/${scriptPath}`)
+  console.log({
+    scriptPath,
+  })
+
+  // Should be loadable now due to tsnode being initialized already
+  require(scriptPath)
 }
 
 /**
@@ -63,9 +69,11 @@ async function main(): Promise<void> {
 async function ensureProjectTsconfigScripts(): Promise<string> {
   const projectTsconfigPath = `./scripts/tsconfig.json`
 
-  if (!fs.pathExistsSync(projectTsconfigPath)) {
+  if (!fs.existsSync(projectTsconfigPath)) {
     // You cannot just use a shared `tsconfig.scripts.json` because of relative paths for `include`
     // So, it will be copied into the project
+
+    const { kpy } = require('@naturalcycles/fs-lib') as typeof fsLib
 
     await kpy({
       baseDir: `${cfgDir}/scripts/`,
@@ -73,12 +81,12 @@ async function ensureProjectTsconfigScripts(): Promise<string> {
       outputDir: './scripts',
     })
 
-    console.log(`${boldGrey('/scripts/tsconfig.json')} file is automatically added`)
+    console.log(`${c.bold.grey('/scripts/tsconfig.json')} file is automatically added`)
   }
 
   return projectTsconfigPath
 }
 
 function nodeModuleExists(moduleName: string): boolean {
-  return fs.pathExistsSync(`./node_modules/${moduleName}`)
+  return fs.existsSync(`./node_modules/${moduleName}`)
 }
