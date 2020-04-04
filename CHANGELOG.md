@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/NaturalCycles/cli/compare/v1.0.2...v1.0.3) (2020-04-04)
+
+
+### Bug Fixes
+
+* path ([670f9a2](https://github.com/NaturalCycles/cli/commit/670f9a26900a13c8a4b72ea0a44720389567d3e0))
+
 ## [1.0.2](https://github.com/NaturalCycles/cli/compare/v1.0.1...v1.0.2) (2020-04-04)
 
 
