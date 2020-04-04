@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/NaturalCycles/cli/compare/v1.0.5...v1.1.0) (2020-04-04)
+
+
+### Features
+
+* auto-complete .ts extension ([ddc0cc7](https://github.com/NaturalCycles/cli/commit/ddc0cc71b8313328d326c80313f0d263dbdfd015))
+
 ## [1.0.5](https://github.com/NaturalCycles/cli/compare/v1.0.4...v1.0.5) (2020-04-04)
 
 
