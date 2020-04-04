@@ -37,13 +37,14 @@ async function main(): Promise<void> {
 
   require('loud-rejection/register')
   require('dotenv/config')
+
   tsnode.register({
     transpileOnly: true,
     project: projectTsconfigPath,
   })
 
-  if (nodeModuleExists('tsconfig-paths')) {
-    require('tsconfig-paths/register')
+  if (fs.existsSync(`./node_modules/tsconfig-paths`)) {
+    require('./node_modules/tsconfig-paths/register')
   }
 
   const { NODE_OPTIONS } = process.env
@@ -85,8 +86,4 @@ async function ensureProjectTsconfigScripts(): Promise<string> {
   }
 
   return projectTsconfigPath
-}
-
-function nodeModuleExists(moduleName: string): boolean {
-  return fs.existsSync(`./node_modules/${moduleName}`)
 }
