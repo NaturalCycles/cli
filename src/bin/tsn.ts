@@ -22,6 +22,7 @@ async function main(): Promise<void> {
   const projectTsconfigPath = await ensureProjectTsconfigScripts()
 
   let [, , scriptPath = '', ..._processArgs] = process.argv
+  const cwd = process.cwd()
 
   // Prepend ./scripts/ if needed
   if (
@@ -44,18 +45,18 @@ async function main(): Promise<void> {
   })
 
   if (fs.existsSync(`./node_modules/tsconfig-paths`)) {
-    require('./node_modules/tsconfig-paths/register')
+    require(require.resolve(`${cwd}/node_modules/tsconfig-paths/register`))
   }
 
   const { NODE_OPTIONS } = process.env
 
   if (NODE_OPTIONS) {
-    console.log(`${c.dim.grey('NODE_OPTIONS: ' + NODE_OPTIONS)}`)
+    console.log(`${c.dim.grey(`NODE_OPTIONS: ${NODE_OPTIONS}`)}`)
   } else {
     console.log(`${c.dim.grey('NODE_OPTIONS are not defined')}`)
   }
 
-  scriptPath = require.resolve(`${process.cwd()}/${scriptPath}`)
+  scriptPath = require.resolve(`${cwd}/${scriptPath}`)
   console.log({
     scriptPath,
   })
