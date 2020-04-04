@@ -39,7 +39,7 @@
   "engines": {
     "node": ">=12.13.1"
   },
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "CLI utils to be installed globally via 'npm i -g'",
   "author": "Natural Cycles Team",
   "license": "MIT"
