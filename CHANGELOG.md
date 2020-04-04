@@ -1,3 +1,10 @@
+## [1.0.4](https://github.com/NaturalCycles/cli/compare/v1.0.3...v1.0.4) (2020-04-04)
+
+
+### Bug Fixes
+
+* tsconfig-paths ([a2d7b57](https://github.com/NaturalCycles/cli/commit/a2d7b57dc196da34841b1d7a9ea743c857454e74))
+
 ## [1.0.3](https://github.com/NaturalCycles/cli/compare/v1.0.2...v1.0.3) (2020-04-04)
 
 
