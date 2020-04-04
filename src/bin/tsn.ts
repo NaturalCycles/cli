@@ -21,20 +21,8 @@ main().catch(err => {
 async function main(): Promise<void> {
   const projectTsconfigPath = await ensureProjectTsconfigScripts()
 
-  let [, , scriptPath = '', ..._processArgs] = process.argv
+  const [, , _scriptPath = '', ..._processArgs] = process.argv
   const cwd = process.cwd()
-
-  // Prepend ./scripts/ if needed
-  if (
-    !scriptPath.startsWith('scripts/') &&
-    !scriptPath.startsWith('./') &&
-    !scriptPath.startsWith('/')
-  ) {
-    const newPath = './scripts/' + scriptPath
-    if (fs.existsSync(newPath)) {
-      scriptPath = newPath
-    }
-  }
 
   require('loud-rejection/register')
   require('dotenv/config')
@@ -56,10 +44,19 @@ async function main(): Promise<void> {
     console.log(`${c.dim.grey('NODE_OPTIONS are not defined')}`)
   }
 
+  // Resolve path
+  // ./scripts/ ... .ts
+  let scriptPath = [
+    _scriptPath,
+    `${_scriptPath}.ts`,
+    `./scripts/${_scriptPath}`,
+    `./scripts/${_scriptPath}.ts`,
+  ].find(fs.existsSync)
+
   scriptPath = require.resolve(`${cwd}/${scriptPath}`)
-  console.log({
-    scriptPath,
-  })
+  // console.log({
+  //   scriptPath,
+  // })
 
   // Should be loadable now due to tsnode being initialized already
   require(scriptPath)
