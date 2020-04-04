@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/NaturalCycles/cli/compare/v1.0.1...v1.0.2) (2020-04-04)
+
+
+### Bug Fixes
+
+* use ts-node programmatically ([a82b3ba](https://github.com/NaturalCycles/cli/commit/a82b3baa1028c2c559c03c78b1d84a836c08893b))
+
 ## [1.0.1](https://github.com/NaturalCycles/cli/compare/v1.0.0...v1.0.1) (2020-04-04)
 
 
