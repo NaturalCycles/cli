@@ -10,7 +10,7 @@ import * as fs from 'fs'
 import * as path from 'path'
 import * as tsnode from 'ts-node'
 
-export const projectDir = path.join(__dirname, '..')
+export const projectDir = path.join(__dirname, '../..')
 export const cfgDir = `${projectDir}/cfg`
 
 main().catch(err => {
