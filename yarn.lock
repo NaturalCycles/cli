@@ -229,9 +229,9 @@
     rimraf "^2.5.2"
 
 "@naturalcycles/cli@^1.0.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@naturalcycles/cli/-/cli-1.1.0.tgz#f7b857fa9bc26d62509fd61cf21da08532d4a1e7"
-  integrity sha512-RxWhua62YowuN8DoWtvsG84FwfbtATn5H+mJJpYFCnuoAcYWPHC2Z30sf9YrN3V8fxILwaJOBAJ+vrcMZwxzYg==
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/@naturalcycles/cli/-/cli-1.1.2.tgz#cdb372f09cc826d6116d3c2448fbbd7521a0879c"
+  integrity sha512-KqMkaIzXNWz1arHyRjTzp2bGL4aPXVJTw85GDsAebR0K6muvqKMi4jcJYu/Dj+dZM/jhG74fJ/uH0Bxjf7ZZRA==
   dependencies:
     "@naturalcycles/fs-lib" "^2.7.0"
     chalk "^4.0.0"

@@ -33,6 +33,9 @@ async function main(): Promise<void> {
   // './src/bin/tsn.ts',
   // 'testscript.ts'
 
+  const [, , _scriptPath = '', ..._processArgs] = process.argv
+  const cwd = process.cwd()
+
   console.log({
     argv1: process.argv,
   })
@@ -42,9 +45,6 @@ async function main(): Promise<void> {
   console.log({
     argv2: process.argv,
   })
-
-  const [, , _scriptPath = '', ..._processArgs] = process.argv
-  const cwd = process.cwd()
 
   require('loud-rejection/register')
   require('dotenv/config')
