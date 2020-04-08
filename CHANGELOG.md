@@ -1,3 +1,10 @@
+## [1.1.4](https://github.com/NaturalCycles/cli/compare/v1.1.3...v1.1.4) (2020-04-08)
+
+
+### Bug Fixes
+
+* remove logging (hide behind env.CLI_DEBUG) ([ff49938](https://github.com/NaturalCycles/cli/commit/ff4993811f7991413a07555f50534c37d795c3b4))
+
 ## [1.1.3](https://github.com/NaturalCycles/cli/compare/v1.1.2...v1.1.3) (2020-04-08)
 
 
