@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/NaturalCycles/cli/compare/v1.1.0...v1.1.1) (2020-04-08)
+
+
+### Bug Fixes
+
+* script/tsconfig.json auto-copying path ([9726498](https://github.com/NaturalCycles/cli/commit/9726498419d1b88b1bfd67be93252d12ff3f3ea2))
+
 # [1.1.0](https://github.com/NaturalCycles/cli/compare/v1.0.5...v1.1.0) (2020-04-04)
 
 
