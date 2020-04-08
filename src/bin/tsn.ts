@@ -21,6 +21,28 @@ main().catch(err => {
 async function main(): Promise<void> {
   const projectTsconfigPath = await ensureProjectTsconfigScripts()
 
+  // remove argv[1] from the array
+  // before:
+  // '/usr/local/bin/node',
+  // '/Users/kirill/Idea/cli/node_modules/.bin/tsn', << that one
+  // './src/bin/tsn.ts',
+  // 'testscript.ts'
+  //
+  // after:
+  // '/usr/local/bin/node',
+  // './src/bin/tsn.ts',
+  // 'testscript.ts'
+
+  console.log({
+    argv1: process.argv,
+  })
+
+  process.argv = [process.argv[0], ...process.argv.slice(2)]
+
+  console.log({
+    argv2: process.argv,
+  })
+
   const [, , _scriptPath = '', ..._processArgs] = process.argv
   const cwd = process.cwd()
 
