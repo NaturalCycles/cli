@@ -1,7 +1,8 @@
 {
   "name": "@naturalcycles/cli",
   "scripts": {
-    "tsn-debug": "tsn ./src/bin/tsn.ts testscript.ts"
+    "tsn-debug": "tsn ./src/bin/tsn.ts testscript.ts",
+    "tsn-debug2": "ts-node -T ./src/bin/tsn.ts testscript.ts"
   },
   "dependencies": {
     "@naturalcycles/fs-lib": "^2.7.0",

@@ -10,11 +10,13 @@ import * as fs from 'fs'
 import * as path from 'path'
 import * as tsnode from 'ts-node'
 
-export const projectDir = path.join(__dirname, '../..')
-export const cfgDir = `${projectDir}/cfg`
+const projectDir = path.join(__dirname, '../..')
+const cfgDir = `${projectDir}/cfg`
+const { CLI_DEBUG } = process.env
 
 main().catch(err => {
   console.error(err)
+  console.log({ argv: process.argv })
   process.exit(1)
 })
 
@@ -36,15 +38,19 @@ async function main(): Promise<void> {
   const [, , _scriptPath = '', ..._processArgs] = process.argv
   const cwd = process.cwd()
 
-  console.log({
-    argv1: process.argv,
-  })
+  if (CLI_DEBUG) {
+    console.log({
+      argv1: process.argv,
+    })
+  }
 
   process.argv = [process.argv[0], ...process.argv.slice(2)]
 
-  console.log({
-    argv2: process.argv,
-  })
+  if (CLI_DEBUG) {
+    console.log({
+      argv2: process.argv,
+    })
+  }
 
   require('loud-rejection/register')
   require('dotenv/config')
