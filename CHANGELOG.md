@@ -1,3 +1,10 @@
+## [1.1.2](https://github.com/NaturalCycles/cli/compare/v1.1.1...v1.1.2) (2020-04-08)
+
+
+### Bug Fixes
+
+* remove argv[1] ([1292a35](https://github.com/NaturalCycles/cli/commit/1292a3536683748f53254c2b608ad5a1e5840d44))
+
 ## [1.1.1](https://github.com/NaturalCycles/cli/compare/v1.1.0...v1.1.1) (2020-04-08)
 
 
