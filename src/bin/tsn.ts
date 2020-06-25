@@ -62,7 +62,8 @@ async function main(): Promise<void> {
   })
 
   if (fs.existsSync(`./node_modules/tsconfig-paths`)) {
-    const tsconfig = JSON.parse(fs.readFileSync(projectTsconfigPath, 'utf8'))
+    const json5 = require('json5')
+    const tsconfig = json5.parse(fs.readFileSync(projectTsconfigPath, 'utf8'))
     const { baseUrl, paths } = tsconfig.compilerOptions || {}
 
     const tsconfigPaths = require(require.resolve(`${cwd}/node_modules/tsconfig-paths`))
