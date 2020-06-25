@@ -49,6 +49,7 @@ async function main(): Promise<void> {
   if (CLI_DEBUG) {
     console.log({
       argv2: process.argv,
+      projectTsconfigPath,
     })
   }
 
@@ -79,7 +80,14 @@ async function main(): Promise<void> {
     `${_scriptPath}.ts`,
     `./scripts/${_scriptPath}`,
     `./scripts/${_scriptPath}.ts`,
+    `./scripts/${_scriptPath}.script.ts`,
   ].find(fs.existsSync)
+
+  if (CLI_DEBUG) {
+    console.log({
+      scriptPath,
+    })
+  }
 
   scriptPath = require.resolve(`${cwd}/${scriptPath}`)
   // console.log({
