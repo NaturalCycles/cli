@@ -1,3 +1,10 @@
+## [1.1.7](https://github.com/NaturalCycles/cli/compare/v1.1.6...v1.1.7) (2020-06-25)
+
+
+### Bug Fixes
+
+* read tsconfig.json as json5 ([99315c1](https://github.com/NaturalCycles/cli/commit/99315c1f6679f2e7cdb1436e224e20c4e2b612db))
+
 ## [1.1.6](https://github.com/NaturalCycles/cli/compare/v1.1.5...v1.1.6) (2020-06-25)
 
 
