@@ -1,3 +1,10 @@
+## [1.1.5](https://github.com/NaturalCycles/cli/compare/v1.1.4...v1.1.5) (2020-06-25)
+
+
+### Bug Fixes
+
+* support ${scriptName}.script.ts ([7eb1f4a](https://github.com/NaturalCycles/cli/commit/7eb1f4a86dd5a3b16aca32479a0805e582e0bcd5))
+
 ## [1.1.4](https://github.com/NaturalCycles/cli/compare/v1.1.3...v1.1.4) (2020-04-08)
 
 
