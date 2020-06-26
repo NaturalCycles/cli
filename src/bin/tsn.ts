@@ -20,6 +20,7 @@ main().catch(err => {
   process.exit(1)
 })
 
+// todo: just use/exec freaking ts-node
 async function main(): Promise<void> {
   const projectTsconfigPath = await ensureProjectTsconfigScripts()
 
@@ -62,15 +63,18 @@ async function main(): Promise<void> {
   })
 
   if (fs.existsSync(`./node_modules/tsconfig-paths`)) {
-    const json5 = require('json5')
-    const tsconfig = json5.parse(fs.readFileSync(projectTsconfigPath, 'utf8'))
-    const { baseUrl, paths } = tsconfig.compilerOptions || {}
+    require(require.resolve(`${cwd}/node_modules/tsconfig-paths/register`))
 
-    const tsconfigPaths = require(require.resolve(`${cwd}/node_modules/tsconfig-paths`))
-    tsconfigPaths.register({
-      baseUrl,
-      paths,
-    })
+    // Kirill: this didn't work ;(
+    // const json5 = require('json5')
+    // const tsconfig = json5.parse(fs.readFileSync(projectTsconfigPath, 'utf8'))
+    // const { baseUrl, paths } = tsconfig.compilerOptions || {}
+    //
+    // const tsconfigPaths = require(require.resolve(`${cwd}/node_modules/tsconfig-paths`))
+    // tsconfigPaths.register({
+    //   baseUrl,
+    //   paths,
+    // })
   }
 
   const { NODE_OPTIONS } = process.env
