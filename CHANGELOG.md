@@ -1,3 +1,15 @@
+## [1.1.8](https://github.com/NaturalCycles/cli/compare/v1.1.7...v1.1.8) (2020-06-26)
+
+
+### Bug Fixes
+
+* release ([6db6f72](https://github.com/NaturalCycles/cli/commit/6db6f721ec23b87ea476cbba38d8c9df4e3204b4))
+
+
+### Reverts
+
+* original tsconfig-paths behavior ([2dbb2b3](https://github.com/NaturalCycles/cli/commit/2dbb2b3926c15e580dbdba5000ea53a875d06545))
+
 ## [1.1.7](https://github.com/NaturalCycles/cli/compare/v1.1.6...v1.1.7) (2020-06-25)
 
 
