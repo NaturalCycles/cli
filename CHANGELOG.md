@@ -1,3 +1,10 @@
+## [1.1.9](https://github.com/NaturalCycles/cli/compare/v1.1.8...v1.1.9) (2020-08-20)
+
+
+### Bug Fixes
+
+* deps (typescript@4.0) ([fbb65ff](https://github.com/NaturalCycles/cli/commit/fbb65ff5dbe072db0513c4dae5e9f7a36ce4e2cf))
+
 ## [1.1.8](https://github.com/NaturalCycles/cli/compare/v1.1.7...v1.1.8) (2020-06-26)
 
 
