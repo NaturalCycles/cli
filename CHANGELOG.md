@@ -1,3 +1,10 @@
+## [1.1.10](https://github.com/NaturalCycles/cli/compare/v1.1.9...v1.1.10) (2020-08-21)
+
+
+### Bug Fixes
+
+* deps (ts-node@9) ([710fad2](https://github.com/NaturalCycles/cli/commit/710fad26c98a86fe90c1cfa9824a330296a18337))
+
 ## [1.1.9](https://github.com/NaturalCycles/cli/compare/v1.1.8...v1.1.9) (2020-08-20)
 
 
