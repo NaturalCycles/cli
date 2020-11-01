@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/NaturalCycles/cli/compare/v1.1.10...v1.2.0) (2020-11-01)
+
+
+### Features
+
+* print Node version together with NODE_OPTIONS ([5bf263e](https://github.com/NaturalCycles/cli/commit/5bf263eaf7b305bc36aa1e2efd26fb88f51028de))
+
 ## [1.1.10](https://github.com/NaturalCycles/cli/compare/v1.1.9...v1.1.10) (2020-08-21)
 
 
