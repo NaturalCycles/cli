@@ -14,15 +14,17 @@ const projectDir = path.join(__dirname, '../..')
 const cfgDir = `${projectDir}/cfg`
 const { CLI_DEBUG } = process.env
 
-main().catch(err => {
+try {
+  main()
+} catch (err) {
   console.error(err)
   console.log({ argv: process.argv })
   process.exit(1)
-})
+}
 
 // todo: just use/exec freaking ts-node
-async function main(): Promise<void> {
-  const projectTsconfigPath = await ensureProjectTsconfigScripts()
+function main(): void {
+  const projectTsconfigPath = ensureProjectTsconfigScripts()
 
   // remove argv[1] from the array
   // before:
@@ -77,13 +79,10 @@ async function main(): Promise<void> {
     // })
   }
 
-  const { NODE_OPTIONS } = process.env
+  const { NODE_OPTIONS = 'not defined' } = process.env
+  const { node } = process.versions
 
-  if (NODE_OPTIONS) {
-    console.log(`${c.dim.grey(`NODE_OPTIONS: ${NODE_OPTIONS}`)}`)
-  } else {
-    console.log(`${c.dim.grey('NODE_OPTIONS are not defined')}`)
-  }
+  console.log(`${c.dim.grey(`node ${node}, NODE_OPTIONS: ${NODE_OPTIONS}`)}`)
 
   // Resolve path
   // ./scripts/ ... .ts
@@ -113,16 +112,16 @@ async function main(): Promise<void> {
 /**
  * Returns path to /scripts/tsconfig.json
  */
-async function ensureProjectTsconfigScripts(): Promise<string> {
+function ensureProjectTsconfigScripts(): string {
   const projectTsconfigPath = `./scripts/tsconfig.json`
 
   if (!fs.existsSync(projectTsconfigPath)) {
     // You cannot just use a shared `tsconfig.scripts.json` because of relative paths for `include`
     // So, it will be copied into the project
 
-    const { kpy } = require('@naturalcycles/fs-lib') as typeof fsLib
+    const { kpySync } = require('@naturalcycles/fs-lib') as typeof fsLib
 
-    await kpy({
+    kpySync({
       baseDir: `${cfgDir}/scripts/`,
       inputPatterns: ['tsconfig.json'],
       outputDir: './scripts',
