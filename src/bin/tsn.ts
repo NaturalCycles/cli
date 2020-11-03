@@ -4,7 +4,7 @@
 This CLI command is optimized for speed, so, it includes minimum dependencies
  */
 
-import type * as fsLib from '@naturalcycles/fs-lib'
+import type * as nodejsLib from '@naturalcycles/nodejs-lib/dist/fs'
 import * as c from 'chalk'
 import * as fs from 'fs'
 import * as path from 'path'
@@ -119,7 +119,7 @@ function ensureProjectTsconfigScripts(): string {
     // You cannot just use a shared `tsconfig.scripts.json` because of relative paths for `include`
     // So, it will be copied into the project
 
-    const { kpySync } = require('@naturalcycles/fs-lib') as typeof fsLib
+    const { kpySync } = require('@naturalcycles/nodejs-lib/dist/fs') as typeof nodejsLib
 
     kpySync({
       baseDir: `${cfgDir}/scripts/`,

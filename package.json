@@ -5,7 +5,7 @@
     "tsn-debug2": "ts-node -T ./src/bin/tsn.ts testscript.ts"
   },
   "dependencies": {
-    "@naturalcycles/fs-lib": "^2.7.0",
+    "@naturalcycles/nodejs-lib": "^12.8.0",
     "chalk": "^4.0.0",
     "dotenv": "^8.2.0",
     "loud-rejection": "^2.2.0",
