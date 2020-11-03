@@ -1,3 +1,11 @@
+## [1.2.1](https://github.com/NaturalCycles/cli/compare/v1.2.0...v1.2.1) (2020-11-03)
+
+
+### Bug Fixes
+
+* build ([90b2b92](https://github.com/NaturalCycles/cli/commit/90b2b9202cd855be0dd79a067967270375fefb55))
+* depend on nodejs-lib instead of deprecated fs-lib ([872b43a](https://github.com/NaturalCycles/cli/commit/872b43ae0e230ef2e1dbb5900159bd43375a5e42))
+
 # [1.2.0](https://github.com/NaturalCycles/cli/compare/v1.1.10...v1.2.0) (2020-11-01)
 
 
