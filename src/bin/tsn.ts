@@ -47,7 +47,7 @@ function main(): void {
     })
   }
 
-  process.argv = [process.argv[0], ...process.argv.slice(2)]
+  process.argv = [process.argv[0]!, ...process.argv.slice(2)]
 
   if (CLI_DEBUG) {
     console.log({
