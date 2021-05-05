@@ -1,3 +1,10 @@
+## [1.2.3](https://github.com/NaturalCycles/cli/compare/v1.2.2...v1.2.3) (2021-05-05)
+
+
+### Bug Fixes
+
+* deps ([fc73e2a](https://github.com/NaturalCycles/cli/commit/fc73e2acdf25b9c8ec4a3c9048d7d5e9535ae7a8))
+
 ## [1.2.2](https://github.com/NaturalCycles/cli/compare/v1.2.1...v1.2.2) (2021-04-06)
 
 
