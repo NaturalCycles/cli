@@ -38,6 +38,7 @@ function main(): void {
   // './src/bin/tsn.ts',
   // 'testscript.ts'
 
+  // eslint-disable-next-line unicorn/no-unreadable-array-destructuring
   const [, , _scriptPath = '', ..._processArgs] = process.argv
   const cwd = process.cwd()
 
