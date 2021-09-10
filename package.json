@@ -2,6 +2,7 @@
   "name": "@naturalcycles/cli",
   "scripts": {
     "prepare": "husky install",
+    "debug": "tsn ./src/bin/tsn.ts",
     "tsn-debug": "tsn ./src/bin/tsn.ts testscript.ts",
     "tsn-debug2": "ts-node -T ./src/bin/tsn.ts testscript.ts"
   },
@@ -21,6 +22,7 @@
   "files": [
     "dist",
     "cfg",
+    "src",
     "!src/test",
     "!src/**/*.test.ts",
     "!src/**/__snapshots__",
