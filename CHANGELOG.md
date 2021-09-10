@@ -1,3 +1,10 @@
+## [1.2.5](https://github.com/NaturalCycles/cli/compare/v1.2.4...v1.2.5) (2021-09-10)
+
+
+### Bug Fixes
+
+* allow `.script.ts` outside of `scripts` ([14112cc](https://github.com/NaturalCycles/cli/commit/14112cc3b8ab1d4096ee68ed3d0fa582a1bd1f67))
+
 ## [1.2.4](https://github.com/NaturalCycles/cli/compare/v1.2.3...v1.2.4) (2021-05-24)
 
 
