@@ -4,7 +4,7 @@
     "prepare": "husky install",
     "debug": "tsn ./src/bin/tsn.ts",
     "tsn-debug": "tsc && CLI_DEBUG=1 node ./dist/bin/tsn.js testscript.ts",
-    "tsn2-debug": "tsc && CLI_DEBUG=1 node ./dist/bin/tsn2.js testscript.ts"
+    "tsn-debug-esbuild": "tsc && CLI_DEBUG=1 TSN_ESBUILD=1 node ./dist/bin/tsn.js testscript.ts"
   },
   "dependencies": {
     "@naturalcycles/nodejs-lib": "^12.8.0",
@@ -32,7 +32,6 @@
   ],
   "main": "dist/index.js",
   "bin": {
-    "tsn2": "dist/bin/tsn2.js",
     "tsn": "dist/bin/tsn.js"
   },
   "publishConfig": {

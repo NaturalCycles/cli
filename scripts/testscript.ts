@@ -1,7 +1,7 @@
 /*
 
 yarn tsn-debug
-yarn tsn2-debug
+yarn tsn-debug-esbuild
 
  */
 

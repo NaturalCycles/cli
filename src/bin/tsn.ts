@@ -8,11 +8,10 @@ import * as fs from 'fs'
 import * as path from 'path'
 import type * as nodejsLib from '@naturalcycles/nodejs-lib/dist/fs'
 import * as c from 'chalk'
-import * as tsnode from 'ts-node'
 
 const projectDir = path.join(__dirname, '../..')
 const cfgDir = `${projectDir}/cfg`
-const { CLI_DEBUG } = process.env
+const { CLI_DEBUG, TSN_ESBUILD } = process.env
 
 try {
   main()
@@ -60,10 +59,18 @@ function main(): void {
   require('loud-rejection/register')
   require('dotenv/config')
 
-  tsnode.register({
-    transpileOnly: true,
-    project: projectTsconfigPath,
-  })
+  if (TSN_ESBUILD) {
+    const { register } = require('esbuild-register/dist/node')
+    register({
+      tsconfigRaw: fs.readFileSync(projectTsconfigPath, 'utf8'),
+    })
+  } else {
+    const tsnode = require('ts-node')
+    tsnode.register({
+      transpileOnly: true,
+      project: projectTsconfigPath,
+    })
+  }
 
   if (fs.existsSync(`./node_modules/tsconfig-paths`)) {
     // ok, for the `paths` it works to load from the root `tsconfig` too

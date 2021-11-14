@@ -16,8 +16,8 @@
   `-T -r tsconfig-paths/register -r dotenv/config`. Will use `./scripts/tsconfig.json` (file will be
   auto-generated in not present).
 
-- `tsn2` is an experimental version of `tsn` that uses `esbuild` and `esbuild-register` instead of
-  `typescript` and `ts-node`.
+Set `TSN_ESBUILD` env variable to enable experimental `esbuild` transpilation, using `esbuild` and
+`esbuild-register` instead of `typescript` and `ts-node`.
 
 # Packaging
 
