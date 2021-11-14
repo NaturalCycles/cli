@@ -1,6 +1,7 @@
 /*
 
-yarn tsn testscript.ts
+yarn tsn-debug
+yarn tsn2-debug
 
  */
 

@@ -16,9 +16,10 @@
   `-T -r tsconfig-paths/register -r dotenv/config`. Will use `./scripts/tsconfig.json` (file will be
   auto-generated in not present).
 
-- ...
+- `tsn2` is an experimental version of `tsn` that uses `esbuild` and `esbuild-register` instead of
+  `typescript` and `ts-node`.
 
 # Packaging
 
 - `engines.node`: Latest Node.js LTS
-- `main: dist/index.js`: commonjs, es2019
+- `main: dist/index.js`: commonjs, es2020

@@ -1,14 +1,19 @@
 #!/usr/bin/env node
 
 /*
-This CLI command is optimized for speed, so, it includes minimum dependencies
+
+tsn2 is an experimental version of `tsn` that uses esbuild and esbuild-register instead of typescript and ts-node.
+
  */
 
+/*
+This CLI command is optimized for speed, so, it includes minimum dependencies
+ */
 import * as fs from 'fs'
 import * as path from 'path'
 import type * as nodejsLib from '@naturalcycles/nodejs-lib/dist/fs'
 import * as c from 'chalk'
-import * as tsnode from 'ts-node'
+import { register } from 'esbuild-register/dist/node'
 
 const projectDir = path.join(__dirname, '../..')
 const cfgDir = `${projectDir}/cfg`
@@ -60,9 +65,12 @@ function main(): void {
   require('loud-rejection/register')
   require('dotenv/config')
 
-  tsnode.register({
-    transpileOnly: true,
-    project: projectTsconfigPath,
+  // tsnode.register({
+  //   transpileOnly: true,
+  //   project: projectTsconfigPath,
+  // })
+  register({
+    tsconfigRaw: fs.readFileSync(projectTsconfigPath, 'utf8'),
   })
 
   if (fs.existsSync(`./node_modules/tsconfig-paths`)) {
