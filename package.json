@@ -10,7 +10,7 @@
     "@naturalcycles/nodejs-lib": "^12.8.0",
     "chalk": "^4.0.0",
     "dotenv": "^10.0.0",
-    "esbuild": "^0.13.13",
+    "esbuild": "^0.14.0",
     "esbuild-register": "^3.1.2",
     "loud-rejection": "^2.2.0",
     "ts-node": "^10.0.0",
