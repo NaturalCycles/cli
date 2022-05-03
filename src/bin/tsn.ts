@@ -11,7 +11,7 @@ import * as c from 'chalk'
 
 const projectDir = path.join(__dirname, '../..')
 const cfgDir = `${projectDir}/cfg`
-const { CLI_DEBUG, TSN_ESBUILD } = process.env
+const { CLI_DEBUG } = process.env
 
 try {
   main()
@@ -59,18 +59,19 @@ function main(): void {
   require('loud-rejection/register')
   require('dotenv/config')
 
-  if (TSN_ESBUILD) {
-    const { register } = require('esbuild-register/dist/node')
-    register({
-      tsconfigRaw: fs.readFileSync(projectTsconfigPath, 'utf8'),
-    })
-  } else {
-    const tsnode = require('ts-node')
-    tsnode.register({
-      transpileOnly: true,
-      project: projectTsconfigPath,
-    })
-  }
+  // Esbuild support currently disabled
+  // if (TSN_ESBUILD) {
+  //   const { register } = require('esbuild-register/dist/node')
+  //   register({
+  //     tsconfigRaw: fs.readFileSync(projectTsconfigPath, 'utf8'),
+  //   })
+  // }
+
+  const tsnode = require('ts-node')
+  tsnode.register({
+    transpileOnly: true,
+    project: projectTsconfigPath,
+  })
 
   if (fs.existsSync(`./node_modules/tsconfig-paths`)) {
     // ok, for the `paths` it works to load from the root `tsconfig` too
