@@ -4,8 +4,8 @@
 This CLI command is optimized for speed, so, it includes minimum dependencies
  */
 
-import * as fs from 'fs'
-import * as path from 'path'
+import * as fs from 'node:fs'
+import * as path from 'node:path'
 import type * as nodejsLib from '@naturalcycles/nodejs-lib/dist/fs'
 import * as c from 'chalk'
 
