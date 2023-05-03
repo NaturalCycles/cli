@@ -10,7 +10,6 @@
     "@naturalcycles/nodejs-lib": "^12.8.0",
     "chalk": "^4.0.0",
     "dotenv": "^16.0.0",
-    "loud-rejection": "^2.2.0",
     "ts-node": "^10.0.0",
     "typescript": "^5.0.2"
   },

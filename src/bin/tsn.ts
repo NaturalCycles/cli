@@ -56,7 +56,6 @@ function main(): void {
     })
   }
 
-  require('loud-rejection/register')
   require('dotenv/config')
 
   // Esbuild support currently disabled
