@@ -4,10 +4,10 @@
 This CLI command is optimized for speed, so, it includes minimum dependencies
  */
 
-import * as fs from 'node:fs'
-import * as path from 'node:path'
-import type * as nodejsLib from '@naturalcycles/nodejs-lib'
-import * as c from 'chalk'
+import fs from 'node:fs'
+import path from 'node:path'
+import type nodejsLib from '@naturalcycles/nodejs-lib'
+import c from 'chalk'
 
 const projectDir = path.join(__dirname, '../..')
 const cfgDir = `${projectDir}/cfg`
