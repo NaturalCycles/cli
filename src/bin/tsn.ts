@@ -4,6 +4,11 @@
 This CLI command is optimized for speed, so, it includes minimum dependencies
  */
 
+// @ts-expect-error polyfill
+Symbol.dispose ??= Symbol('Symbol.dispose')
+// @ts-expect-error polyfill
+Symbol.asyncDispose ??= Symbol('Symbol.asyncDispose')
+
 import fs from 'node:fs'
 import path from 'node:path'
 import type nodejsLib from '@naturalcycles/nodejs-lib'
