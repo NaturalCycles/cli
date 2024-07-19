@@ -11,8 +11,8 @@ Symbol.asyncDispose ??= Symbol('Symbol.asyncDispose')
 
 import fs from 'node:fs'
 import path from 'node:path'
+import { styleText } from 'node:util'
 import type nodejsLib from '@naturalcycles/nodejs-lib'
-import c from 'chalk'
 
 const projectDir = path.join(__dirname, '../..')
 const cfgDir = `${projectDir}/cfg`
@@ -103,7 +103,7 @@ function main(): void {
   const { NODE_OPTIONS = 'not defined' } = process.env
   const { node } = process.versions
 
-  console.log(`${c.dim.grey(`node ${node}, NODE_OPTIONS: ${NODE_OPTIONS}`)}`)
+  console.log(dimGrey(`node ${node}, NODE_OPTIONS: ${NODE_OPTIONS}`))
 
   // Resolve path
   const dotTS = scriptPathOriginal.endsWith('.ts')
@@ -131,7 +131,7 @@ function main(): void {
     console.log(
       [
         '',
-        `${c.bold.red('tsn')} script not found: ${c.bold.white(scriptPathOriginal)}`,
+        `${boldRed('tsn')} script not found: ${boldWhite(scriptPathOriginal)}`,
         '',
         `cwd: ${cwd}`,
         '',
@@ -173,8 +173,24 @@ function ensureProjectTsconfigScripts(): string {
       outputDir: './scripts',
     })
 
-    console.log(`${c.bold.grey('scripts/tsconfig.json')} file is automatically added`)
+    console.log(`${boldGrey('scripts/tsconfig.json')} file is automatically added`)
   }
 
   return projectTsconfigPath
+}
+
+function boldGrey(s: string): string {
+  return styleText(['bold', 'grey'], s)
+}
+
+function boldWhite(s: string): string {
+  return styleText(['bold', 'white'], s)
+}
+
+function boldRed(s: string): string {
+  return styleText(['bold', 'red'], s)
+}
+
+function dimGrey(s: string): string {
+  return styleText(['dim', 'grey'], s)
 }
