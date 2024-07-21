@@ -14,7 +14,7 @@
     "typescript": "^5.0.2"
   },
   "devDependencies": {
-    "@naturalcycles/dev-lib": "^13.4.0",
+    "@naturalcycles/dev-lib": "^14.0.1",
     "@types/node": "^20.2.2"
   },
   "files": [
