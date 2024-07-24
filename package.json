@@ -2,6 +2,11 @@
   "name": "@naturalcycles/cli",
   "scripts": {
     "prepare": "husky",
+    "build": "dev-lib build",
+    "test": "dev-lib test",
+    "lint": "dev-lib lint",
+    "bt": "dev-lib bt",
+    "lbt": "dev-lib lbt",
     "debug": "tsn ./src/bin/tsn.ts",
     "tsn-debug": "tsc && CLI_DEBUG=1 node ./dist/bin/tsn.js testscript.ts",
     "tsn-debug-esbuild": "tsc && CLI_DEBUG=1 TSN_ESBUILD=1 node ./dist/bin/tsn.js testscript.ts"
@@ -14,7 +19,7 @@
     "typescript": "^5.0.2"
   },
   "devDependencies": {
-    "@naturalcycles/dev-lib": "^14.0.1",
+    "@naturalcycles/dev-lib": "^15.0.0",
     "@types/node": "^20.2.2"
   },
   "files": [
