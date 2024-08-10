@@ -7,4 +7,4 @@ yarn tsn-debug-esbuild
 
 console.log('test script')
 
-export {}
+export type {}
