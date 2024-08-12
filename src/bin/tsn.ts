@@ -100,10 +100,26 @@ function main(): void {
     // })
   }
 
-  const { NODE_OPTIONS = 'not defined' } = process.env
-  const { node } = process.versions
+  const { NODE_OPTIONS } = process.env
+  const {
+    platform,
+    arch,
+    versions: { node },
+  } = process
 
-  console.log(dimGrey(`node ${node}, NODE_OPTIONS: ${NODE_OPTIONS}`))
+  console.log(
+    dimGrey(`node ${node} ${platform} ${arch}, NODE_OPTIONS: ${NODE_OPTIONS || 'not defined'}`),
+  )
+
+  if (!NODE_OPTIONS) {
+    console.warn(
+      `NODE_OPTIONS env variable is not defined. You may run into out-of-memory issues when running memory-intensive scripts. It's recommended to set it to:\n--max-old-space-size=12000`,
+    )
+  } else if (NODE_OPTIONS.includes('max_old')) {
+    console.warn(
+      `It looks like you're using "max_old_space_size" syntax with underscores instead of dashes - it's WRONG and doesn't work in environment variables. Strongly advised to rename it to "max-old-space-size"`,
+    )
+  }
 
   // Resolve path
   const dotTS = scriptPathOriginal.endsWith('.ts')

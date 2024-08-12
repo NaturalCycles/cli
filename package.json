@@ -19,7 +19,6 @@
     "typescript": "^5.0.2"
   },
   "devDependencies": {
-    "@biomejs/biome": "^1.8.3",
     "@naturalcycles/dev-lib": "^15.0.0",
     "@types/node": "^22.2.0"
   },
