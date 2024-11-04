@@ -100,11 +100,11 @@ function main(): void {
     // })
   }
 
-  const { NODE_OPTIONS } = process.env
   const {
     platform,
     arch,
     versions: { node },
+    env: { NODE_OPTIONS },
   } = process
 
   console.log(
