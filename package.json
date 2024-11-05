@@ -43,7 +43,7 @@
     "url": "https://github.com/NaturalCycles/cli"
   },
   "engines": {
-    "node": ">=22.11.0"
+    "node": ">=22.10.0"
   },
   "version": "1.2.5",
   "description": "CLI utils to be installed globally via 'npm i -g'",
